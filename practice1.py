@@ -1,4 +1,4 @@
-from math import sin, sqrt
+from math import sin, sqrt, tan, cos
 
 
 def print_finish_num(x):
@@ -37,15 +37,32 @@ def practice3():
     sum2 = 0
     n = int(input())
     m = int(input())
-    for i in range(n):
-        for j in range(m):
+    for i in range(1, n):
+        for j in range(1, m):
             sum1 += i**5 - 47*i
             sum2 += i**6 + j**2 + 16
     sum0 = sum1 + sum2
     print_finish_num(sum0)
 
 
+def practice4():
+    n = int(input())
+    sum0 = recursion4(n)
+    print_finish_num(sum0)
+
+
+def recursion4(x):
+    if x == 0:
+        x0 = 4
+    elif x == 1:
+        x0 = 3
+    else:
+        x0 = tan(recursion4(x - 1)) - cos(recursion4(x - 1))
+    return x0
+
+
 if __name__ == '__main__':
     # practice1()
     # practice2()
-    practice3()
+    # practice3()
+    practice4()
